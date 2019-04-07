@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using CmsLocalization.DB;
+using CmsLocalization.Infastructure;
 using CmsLocalization.Models;
+using CmsLocalization.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -34,6 +36,14 @@ namespace CmsLocalization
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            #region Dependency Injections 
+
+            services.AddScoped<ILanguageRepository, LanguageRepository>();
+            services.AddScoped<IContentRepository, ContentRepository>();
+            services.AddScoped<IContentMappingRepository, ContentMappingRepository>();
+
+            #endregion
 
             #region AutoMapperConfiguration
 
