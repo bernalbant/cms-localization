@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@ViewData["Title"] - CMS</title>
+    <title>@ViewData["Title"] - CMS Localization</title>
     <link rel="stylesheet" href="~/css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="~/js/jquery-1.12.4.min.js"></script>
@@ -27,7 +27,6 @@
                         <span></span>
                     </div>
                     <div class="site-logo">
-                        <img src="http://cnrimob.com/images/logo.png" alt="">
                     </div>
                 </div>
             </div>
@@ -36,16 +35,13 @@
             <div class="row">
 
                 <div class="user-menu">
-
-                    <div class="avatar"><span class="user-name">SB</span></div>
-
+                    <div class="avatar"><span class="user-name">Berkay Ernalbant</span></div>
                     <div id='user-menu'>
                         <ul>
-                            <li><a href="#">Çıkış Yap</a></li>
-                            <li><a href="#!">Ayarlar</a></li>
+                            <li><a href="#">Logout</a></li>
+                            <li><a href="#!">Settings</a></li>
                         </ul>
-                    </div>
-
+                    </div>                   
                 </div>
             </div>
         </div>
@@ -53,20 +49,7 @@
     <aside id="Side-bar">
         <div class="side-nav">
             <ul class="site-navigation">
-                <!-- <li><a asp-controller="Home" asp-action="Index" class="btn-flat waves-effect waves-light"><i class="material-icons">home</i><span>Dashboard</span></a></li> -->
-                <!-- <li><a asp-controller="Site" asp-action="Index" class="btn-flat waves-effect waves-light"><i class="material-icons">desktop_windows</i><span>Siteler</span></a></li> -->
-                 <li><a asp-controller="Content" asp-action="Index" class="btn-flat waves-effect waves-light"><i class="material-icons">content_copy</i><span>İçerikler</span></a></li> 
-                <!-- <li><a href="manage-navigations.html" class="btn-flat waves-effect waves-light"><i class="material-icons">link</i><span>Menüler</span></a></li> -->
-                <li><a class="btn-flat waves-effect waves-light"><i class="material-icons">insert_photo</i><span>Galeri</span></a></li>
-                <li>
-                    <a class="btn-flat waves-effect waves-light">
-                        <i class="material-icons">insert_chart</i><span>
-                            Seo
-                            Ayarları
-                        </span>
-                    </a>
-                </li>
-                <li><a asp-controller="Language" asp-action="Index" class="btn-flat waves-effect waves-light"><i class="material-icons">settings</i><span>Ayarlar</span></a></li>
+                 <li><a asp-controller="Content" asp-action="Index" class="btn-flat waves-effect waves-light"><i class="material-icons">content_copy</i><span>Contents</span></a></li> 
             </ul>
         </div>
         <div class="user-menu">
@@ -80,5 +63,4 @@
     </main>
 
 </body>
-
 </html>

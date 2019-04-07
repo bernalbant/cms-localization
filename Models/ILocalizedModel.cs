@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CmsLocalization.Helpers
+namespace CmsLocalization.Models
 {
     public interface ILocalizedModel
     {
