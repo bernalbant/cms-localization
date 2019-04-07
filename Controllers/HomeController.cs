@@ -3,15 +3,23 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using CmsLocalization.DB;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CmsLocalization.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly CMS_Context _context;
+
+        public HomeController(CMS_Context context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
-            return View();
+            var contents = _context.Contents.ToList();
+            return View(contents);
         }
 
         public IActionResult Create()

@@ -12,6 +12,9 @@ namespace CmsLocalization.Models
 
         public int Id { get; set; }
         public string EntityName { get; set; }
+        public bool IsActive { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        public string CreatedBy { get; set; }
         public IList<ContentMappingModel> Locales { get; set; }
     }
 

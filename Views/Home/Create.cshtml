@@ -1,3 +1,31 @@
-﻿@{
-    ViewData["Title"] = "Create Content";
+﻿@model CmsLocalization.Models.ContentModel
+
+@{
+    ViewData["Title"] = "Yeni İçerik Oluştur";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<div class="col xs-1-1 sm-1-1 md-1-1 lg-1-1">
+    <div class="inner-header">
+        <div class="col xs-1-1 sm-1-3 md-1-3 lg-1-3">
+            <div class="page-title">
+                Create Content
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <form asp-action="Create" method="post">
+            <partial name="_CreateOrUpdate" />
+            <div class="col xs-1-1 sm-1-1 md-1-1 lg-1-1 right-align">
+                <div class="input-field">
+                    <input type="submit" class="btn btn-rounded" value="Create" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
