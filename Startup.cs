@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using CmsLocalization.DB;
+using CmsLocalization.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -32,6 +34,35 @@ namespace CmsLocalization
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            #region AutoMapperConfiguration
+
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+            {
+                #region Content
+
+                cfg.CreateMap<ContentModel, Content>()
+                .ForMember(dest => dest.Locales, mo => mo.Ignore())
+                .ForMember(dest => dest.CreatedBy, mo => mo.Ignore())
+                .ForMember(dest => dest.CreatedDate, mo => mo.Ignore());
+                cfg.CreateMap<Content, ContentModel>();
+
+                #endregion
+
+                #region ContentMapping
+
+                cfg.CreateMap<ContentMappingModel, ContentMapping>()
+                .ForMember(dest => dest.Content, mo => mo.Ignore())
+                .ForMember(dest => dest.Language, mo => mo.Ignore());
+                cfg.CreateMap<ContentMapping, ContentMappingModel>();
+
+                #endregion
+            });
+
+            IMapper mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
+
+            #endregion
 
             services.AddDbContext<CMS_Context>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

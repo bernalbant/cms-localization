@@ -1,6 +1,10 @@
 ﻿<Properties StartupConfiguration="{7A88B1D1-32D1-4225-913A-68DBEA4E65EA}|Default">
   <MonoDevelop.Ide.ItemProperties.CmsLocalization PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="AutoMapperMapping/MappingExtensions.cs">
+    <Files>
+      <File FileName="AutoMapperMapping/MappingExtensions.cs" Line="11" Column="69" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
