@@ -1,19 +1,135 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using AutoMapper;
+using CmsLocalization.AutoMapperMapping;
+using CmsLocalization.DB;
+using CmsLocalization.Infastructure;
+using CmsLocalization.Models;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CmsLocalization.Controllers
 {
-    public class ContentController : Controller
+    public class ContentController : ControllerBase
     {
-        // GET: /<controller>/
+        private readonly IMapper _mapper;
+
+        private readonly IContentRepository _contentRepository;
+        private readonly IContentMappingRepository _contentMappingRepository;
+        private readonly ILanguageRepository _languageRepository;
+
+        public ContentController(IContentRepository contentRepository, IContentMappingRepository contentMappingRepository,
+            ILanguageRepository languageRepository, IMapper mapper)
+        {
+            _contentRepository = contentRepository;
+            _contentMappingRepository = contentMappingRepository;
+            _languageRepository = languageRepository;
+            _mapper = mapper;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            var contents = _contentRepository.GetAll();
+            return View(contents);
+        }
+
+        public IActionResult Create()
+        {
+            var model = new ContentModel();
+            model.Languages = _languageRepository.GetAll().ToList();
+
+            //get mapping proporties
+            AddLocales(_languageRepository, model.Locales);
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Create(ContentModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var content = model.ToEntity(_mapper);
+                    _contentRepository.Insert(content); //create content and mappings
+                    _contentRepository.Save();
+
+                    TempData["Message"] = "İçerik başarıyla eklenmiştir.";
+                    return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = ex.ToString();
+                }
+            }
+            return View(model);
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var content = _contentRepository.GetById(id);
+            if (content == null)
+                return RedirectToAction("Index");
+
+            var mappingModel = new List<ContentMappingModel>();
+            var contentModel = content.ToModel(_mapper);
+            AddLocales(_languageRepository, mappingModel, (locale, languageId) =>
+            {
+                foreach (var item in contentModel.Locales.Where(l => l.LanguageId == languageId))
+                {
+                    locale.Title = item.Title;
+                    locale.SubTitle = item.SubTitle;
+                    locale.Description = item.Description;
+                }
+            });
+            contentModel.Languages = _languageRepository.GetAll().ToList();
+            return View(contentModel);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(ContentModel model)
+        {
+            var content = _contentRepository.GetById(model.Id);
+            if (content == null)
+                return RedirectToAction("Index");
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    content = model.ToEntity(content, _mapper);
+                    _contentRepository.Update(content); //update content and mappings
+
+                    TempData["Message"] = "Updated";
+                    return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = ex.ToString();
+                }
+            }
+            model.Languages = _languageRepository.GetAll().ToList();
+            return View(model);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var content = _contentRepository.GetById(id);
+            if (content == null)
+                return RedirectToAction("Index");
+
+            try
+            {
+                _contentRepository.Delete(content);
+                _contentRepository.Save();
+                TempData["Message"] = "Deleted";
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = ex.ToString();
+            }
+            return RedirectToAction("Index");
         }
     }
 }

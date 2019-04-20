@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using CmsLocalization.DB;
 using CmsLocalization.Infastructure;
 using CmsLocalization.Models;
@@ -10,7 +6,6 @@ using CmsLocalization.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -27,12 +22,10 @@ namespace CmsLocalization
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(options =>
             {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
@@ -54,8 +47,9 @@ namespace CmsLocalization
                 cfg.CreateMap<ContentModel, Content>()
                 .ForMember(dest => dest.Locales, mo => mo.Ignore())
                 .ForMember(dest => dest.CreatedBy, mo => mo.Ignore())
-                .ForMember(dest => dest.CreatedDate, mo => mo.Ignore());
-                cfg.CreateMap<Content, ContentModel>();
+                .ForMember(dest => dest.CreatedTime, mo => mo.Ignore());
+                cfg.CreateMap<Content, ContentModel>()
+                .ForMember(dest => dest.Languages, mo => mo.Ignore());
 
                 #endregion
 
@@ -65,6 +59,16 @@ namespace CmsLocalization
                 .ForMember(dest => dest.Content, mo => mo.Ignore())
                 .ForMember(dest => dest.Language, mo => mo.Ignore());
                 cfg.CreateMap<ContentMapping, ContentMappingModel>();
+
+                #endregion
+
+                #region Language
+
+                cfg.CreateMap<Language, LanguageModel>();
+                cfg.CreateMap<LanguageModel, Language>()
+                .ForMember(dest => dest.ContentMappings, mo => mo.Ignore())
+                .ForMember(dest => dest.CreatedBy, mo => mo.Ignore())
+                .ForMember(dest => dest.CreatedTime, mo => mo.Ignore());
 
                 #endregion
             });

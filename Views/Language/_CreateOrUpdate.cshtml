@@ -1,2 +1,38 @@
-﻿@namespace CmsLocalization.Views.NewFolder
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@model CmsLocalization.Models.LanguageModel
+
+<div class="col xs-1-1 sm-1-1 md-1-1 lg-1-1">
+    <div class="input-field">
+        <input asp-for="Name" />
+        <label for="">Ad</label>
+    </div>
+</div>
+<div class="col xs-1-1 sm-1-1 md-1-1 lg-1-1">
+    <div class="input-field">
+        <input asp-for="LanguageCulture" />
+        <label for="">Dil kültürü</label>
+    </div>
+</div>
+<div class="col xs-1-1 sm-1-1 md-1-1 lg-1-1">
+    <div class="input-field">
+        <input asp-for="UniqueSeoCode" />
+        <label for="">Benzersiz SEO kodu</label>
+    </div>
+</div>
+<div class="col xs-1-1 sm-1-1 md-1-1 lg-1-1">
+    <div class="input-field">
+        <div class="switch">
+            <label>
+                Offline
+                <input asp-for="IsActive">
+                <span class="lever"></span>
+                Online
+            </label>
+        </div>
+    </div>
+</div>
+<div class="col xs-1-1 sm-1-1 md-1-1 lg-1-1">
+    <div class="input-field">
+        <input asp-for="DisplayOrder" />
+        <label for="">Görüntüleme sıraı</label>
+    </div>
+</div>

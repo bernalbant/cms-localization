@@ -11540,13 +11540,13 @@
       "projectName": "CmsLocalization",
       "projectPath": "/Users/berkay/Desktop/Project/CmsLocalization/CmsLocalization.csproj",
       "packagesPath": "/Users/berkay/.nuget/packages/",
-      "outputPath": "/Users/berkay/Desktop/Project/CmsLocalization/obj/",
+      "outputPath": "/Users/berkay/Desktop/Project/CmsLocalization/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/berkay/.nuget/NuGet/NuGet.Config"
+        "/Users/berkay/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
@@ -11575,10 +11575,10 @@
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.1.1, )",
-            "autoReferenced": true
+            "version": "[2.1.1, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true

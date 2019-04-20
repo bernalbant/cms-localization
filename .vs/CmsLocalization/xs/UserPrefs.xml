@@ -1,8 +1,11 @@
 ﻿<Properties StartupConfiguration="{7A88B1D1-32D1-4225-913A-68DBEA4E65EA}|Default">
   <MonoDevelop.Ide.ItemProperties.CmsLocalization PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AutoMapperMapping/MappingExtensions.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Language/Edit.cshtml">
     <Files>
-      <File FileName="AutoMapperMapping/MappingExtensions.cs" Line="11" Column="69" />
+      <File FileName="Views/Language/_CreateOrUpdate.cshtml" Line="1" Column="23" />
+      <File FileName="Views/Language/Create.cshtml" Line="1" Column="30" />
+      <File FileName="Views/Language/Index.cshtml" Line="70" Column="49" />
+      <File FileName="Views/Language/Edit.cshtml" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

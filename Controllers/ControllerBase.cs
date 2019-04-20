@@ -1,19 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using CmsLocalization.Infastructure;
+using CmsLocalization.Models;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CmsLocalization.Controllers
 {
-    public class ControllerBase : Controller
+    public abstract class ControllerBase : Controller
     {
-        // GET: /<controller>/
-        public IActionResult Index()
+        protected virtual void AddLocales<TLocalizedModelLocal>(ILanguageRepository languageService, IList<TLocalizedModelLocal> locales) where TLocalizedModelLocal : ILocalizedModelLocal
         {
-            return View();
+            AddLocales(languageService, locales, null);
+        }
+
+        protected virtual void AddLocales<TLocalizedModelLocal>(ILanguageRepository languageService, IList<TLocalizedModelLocal> locales, Action<TLocalizedModelLocal, int> configure) where TLocalizedModelLocal : ILocalizedModelLocal
+        {
+            foreach (var language in languageService.GetAll())
+            {
+                var locale = Activator.CreateInstance<TLocalizedModelLocal>();
+                locale.LanguageId = language.Id;
+                if (configure != null)
+                {
+                    configure.Invoke(locale, locale.LanguageId);
+                }
+                locales.Add(locale);
+            }
         }
     }
 }

@@ -3,17 +3,19 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App"/>
-    <PackageReference Include="AutoMapper" Version="8.0.0"/>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <Content Remove="Views\Home\About.cshtml"/>
+    <Content Remove="Views\Home\About.cshtml" />
+    <Content Remove="Views\Language\Edit.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\"/>
-    <Folder Include="AutoMapperMapping\"/>
+    <Folder Include="Models\" />
+    <Folder Include="AutoMapperMapping\" />
+    <Folder Include="Views\Language\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Models\ErrorViewModel.cs"/>
+    <Compile Remove="Models\ErrorViewModel.cs" />
   </ItemGroup>
 </Project>

@@ -16,9 +16,9 @@ public class LanguageRepository : ILanguageRepository
 
         public LanguageRepository(CMS_Context context, IContentRepository contentRepository, IContentMappingRepository contentMappingRepository)
         {
-            this._context = context;
-            this._contentRepository = contentRepository;
-            this._contentMappingRepository = contentMappingRepository;
+            _context = context;
+            _contentRepository = contentRepository;
+            _contentMappingRepository = contentMappingRepository;
         }
 
         public Language GetById(int id)

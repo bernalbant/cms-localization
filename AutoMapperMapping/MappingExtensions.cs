@@ -45,5 +45,24 @@ namespace CmsLocalization.AutoMapperMapping
 
         #endregion
 
+        #region Language
+
+        public static LanguageModel ToModel(this Language entity, IMapper _mapper)
+        {
+            return _mapper.Map<Language, LanguageModel>(entity);
+        }
+
+        public static Language ToEntity(this LanguageModel model, IMapper _mapper)
+        {
+            return _mapper.Map<LanguageModel, Language>(model);
+        }
+
+        public static Language ToEntity(this LanguageModel model, Language destination, IMapper _mapper)
+        {
+            return _mapper.Map(model, destination);
+        }
+
+        #endregion
+
     }
 }
