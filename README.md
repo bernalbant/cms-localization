@@ -1,5 +1,5 @@
 # cms-localization
-Multi-language content management system, .Net Core CRUD project. Thanks to ILocalizedModel, dynamically content can be saved in different languages.
+Multi-language content management system, .Net Core CRUD project also include auto-mapper and repository pattern. Thanks to ILocalizedModel, dynamically content can be saved in different languages.
 
         protected virtual void AddLocales<TLocalizedModelLocal>(ILanguageRepository languageService, IList<TLocalizedModelLocal> locales) where TLocalizedModelLocal : ILocalizedModelLocal
         {
