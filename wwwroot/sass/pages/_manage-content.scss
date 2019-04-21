@@ -1,0 +1,39 @@
+#Wrapper {
+    &.manage-content {
+        padding-right: 0;
+
+        .page-settings {
+            height: 100vh;
+            //background: lighten($color: #ffd838, $amount: 10)
+            background: #fff;
+
+            .title {
+                font-size: 18px;
+                padding: 20px 16px;
+                font-weight: 500;
+                border-bottom: 1px solid #eee;
+            }
+
+            .collapsible {
+                box-shadow: none;
+                margin: 0;
+
+                .collapsible-header {
+                    font-weight: 500;
+                }
+
+                .active {
+
+                    .collapsible-header {
+                        background-color: $secondary-color;
+                        color: #fff;
+                    }
+                                .collapsible-body {
+                                   // background: #f8f8f8;
+                                }
+
+                }
+            }
+        }
+    }
+}

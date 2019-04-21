@@ -14,15 +14,19 @@ public class ContentRepository : IContentRepository
 
         private readonly CMS_Context _context;
 
-        public ContentRepository(CMS_Context context, IContentMappingRepository contentMappingRepository)
+        public ContentRepository(CMS_Context context,
+               IContentMappingRepository contentMappingRepository)
         {
-            this._context = context;
-            this._contentMappingRepository = contentMappingRepository;
+            _context = context;
+            _contentMappingRepository = contentMappingRepository;
         }
 
         public Content GetById(int id)
         {
-            var content = _context.Contents.Include(c => c.Locales).Where(c => c.Id == id).FirstOrDefault();
+            var content = _context.Contents
+                .Where(c => c.Id == id)
+                .Include(c => c.Locales)
+                .FirstOrDefault();
             return content;
         }
 
@@ -43,15 +47,13 @@ public class ContentRepository : IContentRepository
 
         public void Insert(Content entity)
         {
-            entity.CreatedBy = "Berkay Ernalbant";
-            entity.CreatedDate = DateTime.Now;
+            entity.CreatedTime = DateTime.Now;
             _context.Contents.Add(entity);
         }
 
         public int InsertAndGetId(Content entity)
         {
-            entity.CreatedBy = "Berkay Ernalbant";
-            entity.CreatedDate = DateTime.Now;
+            entity.CreatedTime = DateTime.Now;
             _context.Contents.Add(entity);
             Save();
             return entity.Id;
@@ -63,15 +65,7 @@ public class ContentRepository : IContentRepository
         }
         public void Delete(Content entity)
         {
-            var contentMappings = _contentMappingRepository.GetMany(m => m.ContentId == entity.Id);
-            //delete also content mappings
-            foreach (var contMap in contentMappings)
-            {
-                _contentMappingRepository.Delete(contMap);
-            }
-            Save();
-            Delete(entity);
-            Save();
+            _context.Remove(entity);
         }
 
         public int Save()

@@ -52,10 +52,11 @@ namespace CmsLocalization.Controllers
                 try
                 {
                     var content = model.ToEntity(_mapper);
+                    content.CreatedBy = "Berkay";
                     _contentRepository.Insert(content); //create content and mappings
                     _contentRepository.Save();
 
-                    TempData["Message"] = "İçerik başarıyla eklenmiştir.";
+                    TempData["Message"] = "The new content has been added successfully.";
                     return RedirectToAction("Index");
                 }
                 catch (Exception ex)
@@ -72,19 +73,27 @@ namespace CmsLocalization.Controllers
             if (content == null)
                 return RedirectToAction("Index");
 
-            var mappingModel = new List<ContentMappingModel>();
-            var contentModel = content.ToModel(_mapper);
-            AddLocales(_languageRepository, mappingModel, (locale, languageId) =>
+            try
             {
-                foreach (var item in contentModel.Locales.Where(l => l.LanguageId == languageId))
+                var mappingModel = new List<ContentMappingModel>();
+                var contentModel = content.ToModel(_mapper);
+                AddLocales(_languageRepository, mappingModel, (locale, languageId) =>
                 {
-                    locale.Title = item.Title;
-                    locale.SubTitle = item.SubTitle;
-                    locale.Description = item.Description;
-                }
-            });
-            contentModel.Languages = _languageRepository.GetAll().ToList();
-            return View(contentModel);
+                    foreach (var item in contentModel.Locales.Where(l => l.LanguageId == languageId))
+                    {
+                        locale.Title = item.Title;
+                        locale.SubTitle = item.SubTitle;
+                        locale.Description = item.Description;
+                    }
+                });
+                contentModel.Languages = _languageRepository.GetAll().ToList();
+                return View(contentModel);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = ex.ToString();
+            }
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -101,7 +110,7 @@ namespace CmsLocalization.Controllers
                     content = model.ToEntity(content, _mapper);
                     _contentRepository.Update(content); //update content and mappings
 
-                    TempData["Message"] = "Updated";
+                    TempData["Message"] = "The content has been updated successfully.";
                     return RedirectToAction("Index");
                 }
                 catch (Exception ex)
@@ -123,7 +132,7 @@ namespace CmsLocalization.Controllers
             {
                 _contentRepository.Delete(content);
                 _contentRepository.Save();
-                TempData["Message"] = "Deleted";
+                TempData["Message"] = "The content has been deleted successfully.";
             }
             catch (Exception ex)
             {

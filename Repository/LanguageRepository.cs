@@ -14,7 +14,9 @@ public class LanguageRepository : ILanguageRepository
         private readonly IContentRepository _contentRepository;
         private readonly IContentMappingRepository _contentMappingRepository;
 
-        public LanguageRepository(CMS_Context context, IContentRepository contentRepository, IContentMappingRepository contentMappingRepository)
+        public LanguageRepository(CMS_Context context,
+            IContentRepository contentRepository,
+            IContentMappingRepository contentMappingRepository)
         {
             _context = context;
             _contentRepository = contentRepository;
@@ -44,11 +46,12 @@ public class LanguageRepository : ILanguageRepository
 
         public void Insert(Language entity)
         {
+            //save language
             _context.Languages.Add(entity);
             Save();
 
+            //save mappings for new lang
             var contents = _contentRepository.GetAll();
-            //to delete all contents by language
             foreach (var content in contents)
             {
                 var contentMapping = new ContentMapping

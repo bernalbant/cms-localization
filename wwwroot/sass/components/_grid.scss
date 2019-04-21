@@ -1,0 +1,555 @@
+//Imported less files
+@import "variables";
+@import "mixin";
+// Container rules ----
+.container,
+.col,
+.container:after {
+    @include box-sizing;
+}
+
+.container {
+    @include block-center;
+    position: relative;
+}
+
+.container,
+.col {
+    @include clearfix;
+}
+
+.col {
+    @include col;
+}
+
+/*RESPONSIVE RULLS*/
+
+// Column Rulles
+// -------------------------------
+@media (max-width: $xs-max-screen) {
+    /* Content Columns */
+    .col.xs-1-1 {
+        width: 100%;
+    }
+    .col.xs-2-3,
+    .col.xs-8-12 {
+        width: 66.66%;
+    }
+    .col.xs-1-2,
+    .col.xs-6-12 {
+        width: 50%;
+    }
+    .col.xs-1-3,
+    .col.xs-4-12 {
+        width: 33.33%;
+    }
+    .col.xs-1-4,
+    .col.xs-3-12 {
+        width: 25%;
+    }
+    .col.xs-1-5 {
+        width: 20%;
+    }
+    .col.xs-1-6,
+    .col.xs-2-12 {
+        width: 16.667%;
+    }
+    .col.xs-1-7 {
+        width: 14.28%;
+    }
+    .col.xs-1-8 {
+        width: 12.5%;
+    }
+    .col.xs-1-9 {
+        width: 11.1%;
+    }
+    .col.xs-1-10 {
+        width: 10%;
+    }
+    .col.xs-1-11 {
+        width: 9.09%;
+    }
+    .col.xs-1-12 {
+        width: 8.33%
+    }
+    /* Layout Columns */
+    .col.xs-11-12 {
+        width: 91.66%
+    }
+    .col.xs-10-12 {
+        width: 83.333%;
+    }
+    .col.xs-9-12 {
+        width: 75%;
+    }
+    .col.xs-5-12 {
+        width: 41.66%;
+    }
+    .col.xs-7-12 {
+        width: 58.33%
+    }
+    /* Pushing blocks */
+    .push-xs-2-3,
+    .push-xs-8-12 {
+        margin-left: 66.66%;
+    }
+    .push-xs-1-2,
+    .push-xs-6-12 {
+        margin-left: 50%;
+    }
+    .push-xs-5-12 {
+        margin-left: 41.66%;
+    }
+    .push-xs-1-3,
+    .push-xs-4-12 {
+        margin-left: 33.33%;
+    }
+    .push-xs-1-4,
+    .push-xs-3-12 {
+        margin-left: 25%;
+    }
+    .push-xs-1-5 {
+        margin-left: 20%;
+    }
+    .push-xs-1-6,
+    .push-xs-2-12 {
+        margin-left: 16.667%;
+    }
+    .push-xs-1-7 {
+        margin-left: 14.28%;
+    }
+    .push-xs-1-8 {
+        margin-left: 12.5%;
+    }
+    .push-xs-1-9 {
+        margin-left: 11.1%;
+    }
+    .push-xs-1-10 {
+        margin-left: 10%;
+    }
+    .push-xs-1-11 {
+        margin-left: 9.09%;
+    }
+    .push-xs-1-12 {
+        margin-left: 8.33%
+    }
+}
+
+@media (min-width: $sm-min-screen) {
+    /* Content Columns */
+    .col.sm-1-1 {
+        width: 100%;
+    }
+    .col.sm-2-3,
+    .col.sm-8-12 {
+        width: 66.66%;
+    }
+    .col.sm-1-2,
+    .col.sm-6-12 {
+        width: 50%;
+    }
+    .col.sm-1-3,
+    .col.sm-4-12 {
+        width: 33.33%;
+    }
+    .col.sm-1-4,
+    .col.sm-3-12 {
+        width: 25%;
+    }
+    .col.sm-1-5 {
+        width: 20%;
+    }
+    .col.sm-1-6,
+    .col.sm-2-12 {
+        width: 16.667%;
+    }
+    .col.sm-1-7 {
+        width: 14.28%;
+    }
+    .col.sm-1-8 {
+        width: 12.5%;
+    }
+    .col.sm-1-9 {
+        width: 11.1%;
+    }
+    .col.sm-1-10 {
+        width: 10%;
+    }
+    .col.sm-1-11 {
+        width: 9.09%;
+    }
+    .col.sm-1-12 {
+        width: 8.33%
+    }
+    /* Layout Columns */
+    .col.sm-11-12 {
+        width: 91.66%
+    }
+    .col.sm-10-12 {
+        width: 83.333%;
+    }
+    .col.sm-9-12 {
+        width: 75%;
+    }
+    .col.sm-5-12 {
+        width: 41.66%;
+    }
+    .col.sm-7-12 {
+        width: 58.33%
+    }
+    /* Pushing blocks */
+    .push-sm-2-3,
+    .push-sm-8-12 {
+        margin-left: 66.66%;
+    }
+    .push-sm-1-2,
+    .push-sm-6-12 {
+        margin-left: 50%;
+    }
+    .push-sm-5-12 {
+        width: 41.66%;
+    }
+    .push-sm-1-3,
+    .push-sm-4-12 {
+        margin-left: 33.33%;
+    }
+    .push-sm-1-4,
+    .push-sm-3-12 {
+        margin-left: 25%;
+    }
+    .push-sm-1-5 {
+        margin-left: 20%;
+    }
+    .push-sm-1-6,
+    .push-sm-2-12 {
+        margin-left: 16.667%;
+    }
+    .push-sm-1-7 {
+        margin-left: 14.28%;
+    }
+    .push-sm-1-8 {
+        margin-left: 12.5%;
+    }
+    .push-sm-1-9 {
+        margin-left: 11.1%;
+    }
+    .push-sm-1-10 {
+        margin-left: 10%;
+    }
+    .push-sm-1-11 {
+        margin-left: 9.09%;
+    }
+    .push-sm-1-12 {
+        margin-left: 8.33%
+    }
+}
+
+@media (min-width: $md-min-screen) {
+    /* Content Columns */
+    .col.md-1-1 {
+        width: 100%;
+    }
+    .col.md-2-3,
+    .col.md-8-12 {
+        width: 66.66%;
+    }
+    .col.md-1-2,
+    .col.md-6-12 {
+        width: 50%;
+    }
+    .col.md-1-3,
+    .col.md-4-12 {
+        width: 33.33%;
+    }
+    .col.md-1-4,
+    .col.md-3-12 {
+        width: 25%;
+    }
+    .col.md-1-5 {
+        width: 20%;
+    }
+    .col.md-1-6,
+    .col.md-2-12 {
+        width: 16.667%;
+    }
+    .col.md-1-7 {
+        width: 14.28%;
+    }
+    .col.md-1-8 {
+        width: 12.5%;
+    }
+    .col.md-1-9 {
+        width: 11.1%;
+    }
+    .col.md-1-10 {
+        width: 10%;
+    }
+    .col.md-1-11 {
+        width: 9.09%;
+    }
+    .col.md-1-12 {
+        width: 8.33%
+    }
+    /* Layout Columns */
+    .col.md-11-12 {
+        width: 91.66%
+    }
+    .col.md-10-12 {
+        width: 83.333%;
+    }
+    .col.md-9-12 {
+        width: 75%;
+    }
+    .col.md-5-12 {
+        width: 41.66%;
+    }
+    .col.md-7-12 {
+        width: 58.33%
+    }
+    /* Pushing blocks */
+    .push-md-2-3,
+    .push-md-8-12 {
+        margin-left: 66.66%;
+    }
+    .push-md-1-2,
+    .push-md-6-12 {
+        margin-left: 50%;
+    }
+    .push-md-5-12 {
+        margin-left: 41.66%;
+    }
+    .push-md-1-3,
+    .push-md-4-12 {
+        margin-left: 33.33%;
+    }
+    .push-md-1-4,
+    .push-md-3-12 {
+        margin-left: 25%;
+    }
+    .push-md-1-5 {
+        margin-left: 20%;
+    }
+    .push-md-1-6,
+    .push-md-2-12 {
+        margin-left: 16.667%;
+    }
+    .push-md-1-7 {
+        margin-left: 14.28%;
+    }
+    .push-md-1-8 {
+        margin-left: 12.5%;
+    }
+    .push-md-1-9 {
+        margin-left: 11.1%;
+    }
+    .push-md-1-10 {
+        margin-left: 10%;
+    }
+    .push-md-1-11 {
+        margin-left: 9.09%;
+    }
+    .push-md-1-12 {
+        margin-left: 8.33%
+    }
+}
+
+@media (min-width: $lg-min-screen) {
+    /* Content Columns */
+    .col.lg-1-1 {
+        width: 100%;
+    }
+    .col.lg-2-3,
+    .col.lg-8-12 {
+        width: 66.66%;
+    }
+    .col.lg-1-2,
+    .col.lg-6-12 {
+        width: 50%;
+    }
+    .col.lg-1-3,
+    .col.lg-4-12 {
+        width: 33.33%;
+    }
+    .col.lg-1-4,
+    .col.lg-3-12 {
+        width: 25%;
+    }
+    .col.lg-1-5 {
+        width: 20%;
+    }
+    .col.lg-1-6,
+    .col.lg-2-12 {
+        width: 16.667%;
+    }
+    .col.lg-1-7 {
+        width: 14.28%;
+    }
+    .col.lg-1-8 {
+        width: 12.5%;
+    }
+    .col.lg-1-9 {
+        width: 11.1%;
+    }
+    .col.lg-1-10 {
+        width: 10%;
+    }
+    .col.lg-1-11 {
+        width: 9.09%;
+    }
+    .col.lg-1-12 {
+        width: 8.33%
+    }
+    /* Layout Columns */
+    .col.lg-11-12 {
+        width: 91.66%
+    }
+    .col.lg-10-12 {
+        width: 83.333%;
+    }
+    .col.lg-9-12 {
+        width: 75%;
+    }
+    .col.lg-5-12 {
+        width: 41.66%;
+    }
+    .col.lg-7-12 {
+        width: 58.33%
+    }
+    /* Pushing blocks */
+    .push-lg-2-3,
+    .push-lg-8-12 {
+        margin-left: 66.66%;
+    }
+    .push-lg-1-2,
+    .push-lg-6-12 {
+        margin-left: 50%;
+    }
+    .push-lg-5-12 {
+        margin-left: 41.66%;
+    }
+    .push-lg-1-3,
+    .push-lg-4-12 {
+        margin-left: 33.33%;
+    }
+    .push-lg-1-4,
+    .push-lg-3-12 {
+        margin-left: 25%;
+    }
+    .push-lg-1-5 {
+        margin-left: 20%;
+    }
+    .push-lg-1-6,
+    .push-lg-2-12 {
+        margin-left: 16.667%;
+    }
+    .push-lg-1-7 {
+        margin-left: 14.28%;
+    }
+    .push-lg-1-8 {
+        margin-left: 12.5%;
+    }
+    .push-lg-1-9 {
+        margin-left: 11.1%;
+    }
+    .push-lg-1-10 {
+        margin-left: 10%;
+    }
+    .push-lg-1-11 {
+        margin-left: 9.09%;
+    }
+    .push-lg-1-12 {
+        margin-left: 8.33%
+    }
+}
+
+// Container Rulles
+// ------------------------------
+@media (max-width: $xs-max-screen) {
+    .container {
+        width: $xs-container;
+        padding-left: $small-gutter;
+        padding-right: $small-gutter;
+    }
+    .col {
+        padding-left: $small-gutter;
+        padding-right: $small-gutter;
+    }
+    .row {
+        margin-left: -$small-gutter;
+        margin-right: -$small-gutter;
+    }
+}
+
+@media (min-width: $sm-min-screen) {
+    .container {
+        width: $sm-container;
+    }
+    .col {
+        padding-left: $small-gutter;
+        padding-right: $small-gutter;
+    }
+    .row {
+        margin-left: -$small-gutter;
+        margin-right: -$small-gutter;
+    }
+}
+
+@media (min-width: $md-min-screen) {
+    .container {
+        width: $md-container;
+    }
+    .col {
+        padding-left: $small-gutter;
+        padding-right: $small-gutter;
+    }
+    .row {
+        margin-left: -$small-gutter;
+        margin-right: -$small-gutter;
+    }
+}
+
+@media (min-width: $lg-min-screen) {
+    .container {
+        width: $lg-container;
+    }
+    .col {
+        padding-left: $small-gutter;
+        padding-right: $small-gutter;
+    }
+    .row {
+        margin-left: -$small-gutter;
+        margin-right: -$small-gutter;
+    }
+}
+
+@media (max-width: $xs-max-screen) {}
+
+@media (max-width: $sm-max-screen) {}
+
+@media (max-width: $md-max-screen) {}
+
+@media (max-width: $lg-max-screen) {}
+
+@media (max-width: 767px) {
+    .hidden-xs {
+        display: none !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hidden-sm {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .hidden-md {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1367px) {
+    .hidden-lg {
+        display: none !important;
+    }
+}

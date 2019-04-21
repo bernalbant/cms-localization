@@ -27,6 +27,8 @@
                         <span></span>
                     </div>
                     <div class="site-logo">
+                        <img src="~/img/net-core.png" alt="">
+
                     </div>
                 </div>
             </div>
@@ -35,7 +37,7 @@
             <div class="row">
 
                 <div class="user-menu">
-                    <div class="avatar"><span class="user-name">Berkay Ernalbant</span></div>
+                    <div class="avatar"><span class="user-name">BE</span></div>
                     <div id='user-menu'>
                         <ul>
                             <li><a href="#">Logout</a></li>
@@ -49,7 +51,9 @@
     <aside id="Side-bar">
         <div class="side-nav">
             <ul class="site-navigation">
-                 <li><a asp-controller="Content" asp-action="Index" class="btn-flat waves-effect waves-light"><i class="material-icons">content_copy</i><span>Contents</span></a></li> 
+                 <li><a asp-controller="Home" asp-action="Index" class="btn-flat waves-effect waves-light"><i class="material-icons">home</i><span>Home</span></a></li> 
+                <li><a asp-controller="Content" asp-action="Index" class="btn-flat waves-effect waves-light"><i class="material-icons">content_copy</i><span>Contents</span></a></li> 
+                <li><a asp-controller="Language" asp-action="Index" class="btn-flat waves-effect waves-light"><i class="material-icons">settings</i><span>Language</span></a></li>
             </ul>
         </div>
         <div class="user-menu">
@@ -61,6 +65,5 @@
             @RenderBody()
         </div>
     </main>
-
 </body>
 </html>

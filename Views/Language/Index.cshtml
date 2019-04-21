@@ -10,23 +10,23 @@
         <div class="inner-header">
             <div class="col xs-1-2 sm-1-2 md-1-2 lg-1-2">
                 <div class="page-title">
-                    Yüklü Diller
+                    Installed Languages
                 </div>
             </div>
             <div class="col xs-1-2 sm-1-2 md-1-2 lg-1-2 right-align">
-                <a asp-controller="Language" asp-action="Create" class="btn btn-rounded waves-effect waves-light"> Yeni Dii Ekle <i class="material-icons left">add</i></a>
+                <a asp-action="Create" class="btn btn-rounded waves-effect waves-light"> Add new <i class="material-icons left">add</i></a>
             </div>
         </div>
         <div class="table">
             <div class="t-head">
                 <div class="t-row">
-                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5">Ad</div>
-                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5">Dil kültürü</div>
-                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5">Benzersiz SEO kodu</div>
-                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5">Yayınlandı</div>
-                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5">Oluşturan</div>
-                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5">Görüntüleme Sırası</div>
-                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5 right-align">İşlemler</div>
+                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5">Name</div>
+                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5">Language Culture</div>
+                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5">Unique Seo Code</div>
+                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5">Published</div>
+                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5">CreatedBy</div>
+                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5">Display Order</div>
+                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5 right-align">Edit</div>
                 </div>
             </div>
             <div class="t-body">
@@ -59,7 +59,6 @@
                                 </label>
                             </div>
                         </div>
-
                         <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5">
                             @item.CreatedTime <div class="log">@item.CreatedBy</div>
                         </div>
@@ -69,8 +68,8 @@
                         <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5 right-align">
                             @*<a class='dropdown-trigger btn-flat' href='#' data-target='page-settigns'><i class="material-icons">more_vert</i></a>*@
                             <ul>
-                                <li><a asp-action="Edit" asp-route-id="@item.Id"> Düzenle</a></li>
-                                <li><a asp-action="Delete" asp-route-id="@item.Id">Sil</a></li>
+                                <li><a asp-action="Edit" asp-route-id="@item.Id">Edit</a></li>
+                                <li><a asp-action="Delete" asp-route-id="@item.Id">Delete</a></li>
                             </ul>
                         </div>
                     </div>

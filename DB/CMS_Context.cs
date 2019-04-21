@@ -14,7 +14,7 @@ namespace CmsLocalization.DB
         {
             if (!optionsBuilder.IsConfigured)
             {
-                var connect = optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=CMS_DataBase;Integrated Security=True");
+                var connect = optionsBuilder.UseSqlServer(@"Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CmsLocalizaiton_Database;Integrated Security=True");
             }
         }
 

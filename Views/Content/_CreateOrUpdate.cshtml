@@ -1,0 +1,65 @@
+﻿@model CmsLocalization.Models.ContentModel
+@using CmsLocalization.DB
+
+@{
+    List<Language> languages = ViewBag.Languages;
+    var index = 0;
+}
+
+<div class="col xs-1-1 sm-1-1 md-1-1 lg-1-1">
+    <div class="input-field">
+        <input asp-for="ContentName" />
+        <label for="">Content Name</label>
+    </div>
+</div>
+<div class="col xs-1-1 sm-1-1 md-1-1 lg-1-1">
+    <div class="input-field">
+        <div class="switch">
+            <label>
+                Offline
+                <input asp-for="IsActive">
+                <span class="lever"></span>
+                Online
+            </label>
+        </div>
+    </div>
+</div>
+
+<div class="col xs-1-1 sm-1-1 md-1-1 lg-1-1">
+    <ul class="tabs tab-bordered">
+        @foreach (var language in Model.Languages)
+        {
+            <li class="tab col s3"><a href="#@language.Id">@language.Name</a></li>
+        }
+    </ul>
+</div>
+
+@foreach (var item in Model.Locales)
+{
+    <input asp-for="Locales[index].LanguageId" type="hidden" />
+
+    <div id="@item.LanguageId" class="col xs-1-1 sm-1-1 md-1-1 lg-1-1">
+        <div class="tab-content">
+            <div class="col xs-1-1 sm-1-1 md-1-1 lg-1-1">
+                <div class="input-field">
+                    <input asp-for="Locales[index].Title" />
+                    <label>Title</label>
+                </div>
+            </div>
+            <div class="col xs-1-1 sm-1-1 md-1-1 lg-1-1">
+                <div class="input-field">
+                    <input asp-for="Locales[index].SubTitle" />
+                    <label>SubTitle</label>
+                </div>
+            </div>
+            <div class="col xs-1-1 sm-1-1 md-1-1 lg-1-1">
+                <div class="input-field">
+                    <input asp-for="Locales[index].Description" />
+                    <label>Description</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    index++;
+}

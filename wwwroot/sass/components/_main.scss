@@ -1,0 +1,23 @@
+#Wrapper {
+    position: fixed;
+    height: calc(100vh - 60px - 32px);
+    width: calc(100vw - 60px - 32px);
+    overflow-y: auto;
+    bottom: 0;
+    right: 16px;
+    transition: width .3s ease-in-out;
+
+    &>.content {
+        background-color: #fff;
+        border-radius: 6px 6px 0 0;
+        @include clearfix;
+        @extend .z-depth-1;
+
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    &.menu-open {
+        width: calc(100vw - 60px - 32px - 220px);
+    }
+}

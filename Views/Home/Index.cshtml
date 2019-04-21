@@ -1,59 +1,7 @@
-﻿@model IEnumerable<CmsLocalization.DB.Content>
-
-@{
-    ViewData["Title"] = "Home Page";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@{
+    ViewData["Title"] = "Home page";
 }
 
-<div class="content">
-    <div class="col xs-1-1 sm-1-1 md-1-1 lg-1-1">
-        <div class="inner-header">
-            <div class="col xs-1-2 sm-1-2 md-1-2 lg-1-2">
-                <div class="page-title">
-                    Contnets
-                </div>
-            </div>
-            <div class="col xs-1-2 sm-1-2 md-1-2 lg-1-2 right-align">
-                <a asp-action="Create" class="btn btn-rounded waves-effect waves-light"> Create Content <i class="material-icons left">add</i></a>
-            </div>
-        </div>
-        <div class="table">
-            <div class="t-head">
-                <div class="t-row">
-                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5">Id</div>
-                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5">EntityName</div>
-                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5">CreatedBy</div>
-                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5 right-align">Edit</div>
-
-                </div>
-            </div>
-            <div class="t-body">
-                @foreach (var item in Model)
-                {
-                <div class="t-row">
-                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5">
-                        <div class="page-name">@item.Id</div>
-                    </div>
-                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5">
-                        <div class="page-name">@item.EntityName</div>
-                    </div>
-                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5">
-                        @item.CreatedDate <div class="log">
-                            @item.CreatedBy
-                        </div>
-                    </div>
-                    <div class="t-cell col xs-1-5 sm-1-5 md-1-5 lg-1-5 right-align">
-                        <a class='dropdown-trigger btn-flat' href='#' data-target='page-settigns'><i class="material-icons">more_vert</i></a>
-                        <ul id='page-settigns' class='dropdown-content'>
-                            <li><a asp-action="Edit" asp-route-id="@item.Id"> Düzenle</a></li>
-                            <li><a asp-action="Delete" asp-route-id="@item.Id">Sil</a></li>
-                        </ul>
-                    </div>
-                </div>
-                }
-            </div>
-            <div class="list-footer"></div>
-        </div>
-    </div>
-    <br>
+<div class="text-center">
+    <p>Content Management System</p>
 </div>

@@ -1,0 +1,92 @@
+.table {
+    padding: 0 0 0;
+    background-color: #fff;
+    border-radius: 4px;
+    @extend .z-depth-1;
+    @include clearfix;
+
+    .t-head {
+        .t-row {
+            display: table;
+            width: 100%;
+
+            &>div,
+            .t-cell {
+                padding: 14px 14px 20px;
+                display: table-cell !important;
+                max-width: 100%; //width: calc(100% / 9);
+                vertical-align: middle;
+                font-size: 12px;
+                font-weight: 600;
+                line-height: 1.2;
+                float: none;
+            }
+        }
+    }
+
+    .t-body {
+        .t-row {
+            float: left;
+            display: table;
+            width: 100%;
+            transition: all .2s ease-in-out;
+
+            &:nth-child(odd) {
+                background: #f2f2f2;
+            }
+
+            &>div,
+            .t-cell {
+                padding: 14px; //float: left;
+                display: table-cell !important;
+                max-width: 100%; //width: calc(100% / 9);
+                vertical-align: middle;
+                font-size: 13px;
+                line-height: 1.2;
+                float: none;
+            }
+
+            &:hover {
+                background-color: #e5eef7;
+            }
+        }
+    }
+
+    &.scale-table {
+        background-color: transparent;
+        border-radius: 0;
+        box-shadow: none;
+
+        .t-body {
+            .t-row {
+                background-color: #f8f8f8;
+                border-radius: 4px;
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
+                transform: scale(1);
+                border: none;
+                position: relative;
+                margin-bottom: 5px;
+                z-index: 0;
+                top: 0;
+                cursor: unset;
+
+                &:nth-child(odd) {
+                    background: #f6f6f6;
+                }
+
+                &:hover {
+                    transform: scale(1.01);
+                    box-shadow: 0 0 60px -15px rgba(0, 0, 0, .5);
+                    z-index: 1;
+                    top: -5px;
+                    background-color: #fff;
+                }
+
+                &>div,
+                .t-cell {
+                    padding: 20px 14px;
+                }
+            }
+        }
+    }
+}

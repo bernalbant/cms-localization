@@ -45,7 +45,6 @@ namespace CmsLocalization
                 #region Content
 
                 cfg.CreateMap<ContentModel, Content>()
-                .ForMember(dest => dest.Locales, mo => mo.Ignore())
                 .ForMember(dest => dest.CreatedBy, mo => mo.Ignore())
                 .ForMember(dest => dest.CreatedTime, mo => mo.Ignore());
                 cfg.CreateMap<Content, ContentModel>()

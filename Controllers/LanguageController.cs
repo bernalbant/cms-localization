@@ -44,7 +44,7 @@ namespace CmsLocalization.Controllers
                     language.CreatedBy = "Berkay";
                     _languageRepository.Insert(language);
                     _languageRepository.Save();
-                    TempData["Message"] = "Dil başarıyla eklenmiştir.";
+                    TempData["Message"] = "The new language has been added successfully.";
                     return RedirectToAction("Index");
                 }
                 catch (Exception ex)
@@ -86,6 +86,7 @@ namespace CmsLocalization.Controllers
                 {
                     language = model.ToEntity(language, _mapper);
                     _languageRepository.Update(language);
+                    TempData["Message"] = "The language has been updated successfully.";
                     return RedirectToAction("Index");
                 }
                 catch (Exception ex)
@@ -106,6 +107,7 @@ namespace CmsLocalization.Controllers
             {
                 _languageRepository.Delete(language);
                 _languageRepository.Save();
+                TempData["Message"] = "The language has been deleted successfully.";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)

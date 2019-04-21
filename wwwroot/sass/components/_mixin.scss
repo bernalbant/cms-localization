@@ -1,0 +1,79 @@
+@mixin reset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    color: inherit;   
+}
+
+@mixin text-overflow  {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin box-sizing  {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@mixin clearfix {
+        &:after,
+        &:before {
+            content: "";
+            display: table;
+            width: 100%;
+        }
+}
+
+@mixin block-center  {
+    display: block;
+    margin: 0 auto;
+}
+
+@mixin border-radius($radius) {
+    border-radius: $radius;
+}
+
+@mixin col  {
+    float: left;
+    min-height: 1px;
+    display: block;
+}
+
+@mixin i-h {
+    display: block;
+    text-indent: -9999em;
+    position: absolute;
+}
+
+@mixin d-b {
+    display: block;
+}
+
+@mixin d-i-b {
+    width: 100%;
+    font-size: 0;
+    &>* {
+        display: inline-block;
+        zoom: 1;
+        *display: inline;
+        float: none;
+    }
+}
+
+@mixin d-t {
+    display: table;
+    width: 100%;
+}
+
+@mixin d-t-c {
+    &>* {
+        display: table-cell !important;
+        vertical-align: middle;
+    }
+}

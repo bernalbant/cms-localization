@@ -7,7 +7,7 @@ namespace CmsLocalization.Models
         public string Name { get; set; }
         public string LanguageCulture { get; set; }
         public string UniqueSeoCode { get; set; }
-        public bool Published { get; set; }
+        public bool IsActive { get; set; }
         public int DisplayOrder { get; set; }
     }
 }

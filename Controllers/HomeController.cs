@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using CmsLocalization.DB;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,34 +16,6 @@ namespace CmsLocalization.Controllers
         {
             var contents = _context.Contents.ToList();
             return View(contents);
-        }
-
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Create(int id)
-        {
-            return View();
-        }
-
-
-        public IActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Edit()
-        {
-            return View();
-        }
-
-        public IActionResult Delete()
-        {
-            return View();
-        }
+        }     
     }
 }

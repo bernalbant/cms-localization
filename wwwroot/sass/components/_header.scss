@@ -1,0 +1,173 @@
+#Header {
+    position: fixed;
+    height: 70px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+    background: #fff;
+
+    .header-sign {
+        background:#3f1e4a;
+        overflow: hidden;
+        float: left;
+
+        .menu-opener {
+            width: 30px;
+            height: 20px;
+            float: left;
+            position: relative;
+            margin: 25px 15px;
+            transform: rotate(0deg);
+            transition: .5s ease-in-out;
+            cursor: pointer;
+
+            span {
+                display: block;
+                position: absolute;
+                height: 2px;
+                width: 50%;
+                background: rgba(255, 255, 255, .8);
+                opacity: 1;
+                transform: rotate(0deg);
+                transition: .25s ease-in-out;
+
+                &:nth-child(even) {
+                    left: 50%;
+                    border-radius: 0 9px 9px 0;
+                }
+
+                &:nth-child(odd) {
+                    left: 0px;
+                    border-radius: 9px 0 0 9px;
+                }
+
+                &:nth-child(1),
+                &:nth-child(2) {
+                    top: 0px;
+                }
+
+                &:nth-child(3),
+                &:nth-child(4) {
+                    top: 9px;
+                }
+
+                &:nth-child(5),
+                &:nth-child(6) {
+                    top: 18px;
+                }
+
+            }
+
+            &.open span:nth-child(1),
+            &.open span:nth-child(6) {
+                transform: rotate(45deg);
+            }
+
+            &.open span:nth-child(2),
+            &.open span:nth-child(5) {
+                transform: rotate(-45deg);
+            }
+
+            &.open span:nth-child(1) {
+                left: 5px;
+                top: 7px;
+            }
+
+            &.open span:nth-child(2) {
+                left: calc(50% - 5px);
+                top: 7px;
+            }
+
+            &.open span:nth-child(3) {
+                left: -50%;
+                opacity: 0;
+            }
+
+            &.open span:nth-child(4) {
+                left: 100%;
+                opacity: 0;
+            }
+
+            &.open span:nth-child(5) {
+                left: 5px;
+                top: 12px;
+            }
+
+            &.open span:nth-child(6) {
+                left: calc(50% - 5px);
+                top: 12px;
+            }
+        }
+
+        .site-logo {
+            float: left;
+            background-color: #fff; 
+            width: 220px;
+            padding: 20px 30px;
+            img {
+                max-height: 30px;
+                display: block;
+                
+            }
+        }
+    }
+    .user-menu {
+        padding: 0 14px;
+        position: relative;
+        float: right;
+        cursor: pointer;
+        .avatar {
+            float: right;
+            width: 45px;
+            height: 45px;
+            margin-top: 13px;
+            border-radius: 50%;
+            border: 2px solid #3f1e4a;
+            background: #e6e6e6;
+            text-align: center;
+            .user-name {
+                float: left;
+                width: 41px;
+                height: 41px;
+                line-height: 41px;
+                color: #3f1e4a;
+                font-size: 18px;
+            }
+        }
+        #user-menu {
+            position: absolute;
+            right: 0;
+            top: 80%;
+            padding: 5px 14px;
+            transition: all .3s;
+            visibility: hidden;
+            opacity: 0;
+            ul {
+                background: #f8f8f8;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                padding:10px 14px;
+                margin: 0; 
+                width: 100px;
+                box-shadow: 0 0 40px -10px rgba(0,0,0,.5);
+                li {
+                    list-style: none;
+                    a {
+                        display: block;
+                        font-size: 14px;
+                        color: #555;
+                        font-weight: 400;
+                        line-height: 25px;
+                    }
+                }
+            }
+        }
+        &:hover > #user-menu {
+            visibility: visible;
+            opacity: 1;
+            top: 100%;
+        }
+    }
+}
