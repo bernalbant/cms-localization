@@ -1,0 +1,3 @@
+*.rb linguist-language=csharp
+*.js linguist-detectable=false
+*.css linguist-detectable=false
