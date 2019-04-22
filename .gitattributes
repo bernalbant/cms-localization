@@ -1,5 +1,6 @@
-*.cshtml linguist-language=C#
-*.cshtml linguist-detectable=true
+wwwroot/* linguist-vendored
+
+*.css linguist-language=C#
 *.html linguist-detectable=false
 *.js linguist-detectable=false
 *.css linguist-detectable=false
